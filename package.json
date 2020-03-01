@@ -1,0 +1,24 @@
+{
+  "name": "next.js",
+  "version": "1.0.0",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "next": "^9.2.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
+  },
+  "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "jest": "^25.1.0",
+    "jest-enzyme": "^7.1.2"
+  },
+  "scripts": {
+    "test": "npx jest",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  }
+}
