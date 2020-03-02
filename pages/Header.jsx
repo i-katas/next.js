@@ -1,11 +1,15 @@
 import React from 'react'
 import Link from 'next/link'
 
-const navLinks = {
-  home: {name:'Home', href: '/'},
-  about: {name:'About', href: '/about'}
+export const links = {
+  home: 'home',
+  about: 'about'
 }
 
+const navLinks = {
+  [links.home]: {name:'Home', href: '/'},
+  [links.about]: {name:'About', href: '/about'}
+}
 
 export default function Header({active = 'home'}){
   let links = Object.keys(navLinks).map(it => {

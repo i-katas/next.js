@@ -1,10 +1,10 @@
 import React from 'react'
-import Header from './Header'
+import {links} from './Header'
 import Page from './Page'
 
 export default class extends Page {
   constructor(props, context) {
-    super(props, context, 'home')
+    super(props, context, links.home)
   }
 
   content() {

@@ -1,4 +1,6 @@
 module.exports = (api) => {
   api.cache(true)
-  return {presets: ['@babel/env', '@babel/react']}
+  return {
+    presets: ['@babel/env', '@babel/react']
+  }
 }
