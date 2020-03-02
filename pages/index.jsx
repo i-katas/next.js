@@ -1,8 +1,14 @@
 import React from 'react'
 import {links} from '@components/Header'
-import Page from '@components/Page'
+import withPageLayout from '@components/withPageLayout'
+
+const PageLayout = withPageLayout(links.home)
 
 export default () => {
-    return <Page page={links.home} children={<p>Hello, Next.js!</p>}/>
+  return (
+    <PageLayout>
+      <p>Hello, Next.js!</p>
+    </PageLayout>
+  )
 }
 
