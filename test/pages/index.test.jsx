@@ -8,10 +8,11 @@ describe('index', () => {
     expect(page).toIncludeText('Hello, Next.js!')
   })
 
-  it('links', () => {
+  it('header', () => {
     let page = mount(<Index/>)
 
-    expect(page.find('a')).toIncludeText('About')
+    expect(page.find('Header')).toExist()
+    expect(page.find('Header').prop('active')).toEqual('home')
   })
 
 })

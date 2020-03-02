@@ -1,19 +1,13 @@
 import React from 'react'
-import Link from 'next/link'
+import Header from './Header'
+import Page from './Page'
 
-export default class extends React.Component {
-  render() {
-    return (
-      <>
-        <ul>
-          <li>
-            <Link href='/about'>
-              <a>About</a>
-            </Link>
-          </li>
-        </ul>
-        <p>Hello, Next.js!</p>
-      </>
-    )
+export default class extends Page {
+  constructor(props, context) {
+    super(props, context, 'home')
+  }
+
+  content() {
+    return <p>Hello, Next.js!</p>
   }
 }
