@@ -1,23 +1,18 @@
 import Header, {links} from '@components/Header'
 
+const keys = Object.keys(links)
+
 describe('Header', () => {
-  it('active home by default', () => {
+  it('no-active page', () => {
     let header = mount(<Header/>)
 
-    expect(header.find('li Link').map(it => it.prop('href'))).toEqual(['/about'])
-    expect(header.find('li').map(it => it.text())).toEqual(['Home', 'About'])
+    expect(header.find('li Link')).toHaveLength(keys.length)
   })
 
-  it('active others', () => {
-    let header = mount(<Header active='about'/>)
+  it('active page', () => {
+    let header = mount(<Header active={keys[0]}/>)
 
-    expect(header.find('li Link').map(it => it.prop('href'))).toEqual(['/'])
-    expect(header.find('li').map(it => it.text())).toEqual(['Home', 'About'])
-  })
-
-  it('links', () => {
-    expect(links.home).toEqual('home')
-    expect(links.about).toEqual('about')
+    expect(header.find('li Link')).toHaveLength(keys.length - 1)
   })
 
 })

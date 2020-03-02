@@ -1,9 +1,14 @@
+import {links} from '@components/Header'
 import withPageLayout from '@components/withPageLayout'
 
 describe('PageLayout', () => {
 
-  it('reports diagnostic message if page is not provided', () => {
-    expect(() => withPageLayout()).toThrow(/<PageLayout\/> prop `page` is required/)
+  it('show all nav links if no page was actived', () => {
+    const PageLayout = withPageLayout()
+
+    let layout = mount(<PageLayout><span/></PageLayout>)
+
+    expect(layout.find('Header Link')).toHaveLength(Object.keys(links).length)
   })
 
   it('reports diagnostic message if page is invalid', () => {

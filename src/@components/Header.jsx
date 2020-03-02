@@ -11,7 +11,7 @@ const navLinks = {
   [links.about]: {name:'About', href: '/about'}
 }
 
-export default function Header({active = 'home'}){
+export default function Header({active}){
   let links = Object.keys(navLinks).map(it => {
     let nav = navLinks[it]
     return (

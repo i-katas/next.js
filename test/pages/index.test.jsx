@@ -5,7 +5,10 @@ describe('index', () => {
   it('content', () => {
     let page = mount(<Index/>)
 
-    expect(page).toIncludeText('Hello, Next.js!')
+    let posts = page.find('p').find('a')
+
+    expect(posts.props().href).toEqual(expect.stringMatching('^/post'))
+    expect(posts).toIncludeText('Hello, Next.js!')
   })
 
   it('header', () => {

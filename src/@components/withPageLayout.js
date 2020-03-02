@@ -4,10 +4,7 @@ import Header, {links} from './Header'
 const stringify = JSON.stringify
 
 export default (page) => {
-  if(!page) {
-    throw '<PageLayout/> prop `page` is required'
-  }
-  if(!links[page]) {
+  if(page && !links[page]) {
     throw `<PageLayout page={${Object.values(links).map(stringify).join(' | ')}}/>, but was: ${stringify(page)}`
   }
   return ({children}) => {
@@ -18,7 +15,7 @@ export default (page) => {
     return (
       <>
         <Header active={page}/>
-        {children}
+        <div className='main'>{children}</div>
       </>
     )
   };
