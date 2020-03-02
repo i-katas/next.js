@@ -1,18 +1,18 @@
 import Header, {links} from '@components/Header'
 
-const keys = Object.keys(links)
+const linkNames = Object.keys(links)
 
 describe('Header', () => {
-  it('no-active page', () => {
+  it('show all nav links if no page actived', () => {
     let header = mount(<Header/>)
 
-    expect(header.find('li Link')).toHaveLength(keys.length)
+    expect(header.find('li Link')).toHaveLength(linkNames.length)
   })
 
-  it('active page', () => {
-    let header = mount(<Header active={keys[0]}/>)
+  it('active page navigation should be disabled', () => {
+    let header = mount(<Header active={linkNames[0]}/>)
 
-    expect(header.find('li Link')).toHaveLength(keys.length - 1)
+    expect(header.find('li Link')).toHaveLength(linkNames.length - 1)
   })
 
 })

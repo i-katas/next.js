@@ -8,14 +8,13 @@ describe('post', () => {
     useRouter.mockImplementation(()=> ({query: {id: 'Hello, Next.js'}}))
   })
 
-  it('render page with query string', () => {
-
+  it('render page with router query', () => {
     let page = shallow(<Post />)
 
     expect(page.find('h1')).toHaveText('Hello, Next.js')
   })
 
-  it('header', () => {
+  it('active all nav links', () => {
     let page = mount(<Post />)
 
     expect(page.find('Header')).toExist()
