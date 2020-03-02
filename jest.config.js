@@ -1,4 +1,4 @@
 module.exports = {
-  moduleDirectories: ['pages', 'src', 'node_modules'],
-  setupFilesAfterEnv: ['<rootDir>/test/setup.js', './node_modules/jest-enzyme/lib/index.js']
+  moduleDirectories: ['src', 'node_modules'],
+  setupFilesAfterEnv: ['<rootDir>/test/enzyme-registry', './node_modules/jest-enzyme/lib/index.js']
 }

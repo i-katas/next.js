@@ -1,4 +1,4 @@
-import Index from 'index'
+import Index from 'pages/index'
 import {links} from '@components/Header'
 
 describe('index', () => {

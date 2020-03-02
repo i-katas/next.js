@@ -1,4 +1,4 @@
-import About from 'about'
+import About from 'pages/about'
 import {links} from '@components/Header'
 
 describe('about', () => {

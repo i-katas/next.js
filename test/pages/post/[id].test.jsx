@@ -1,4 +1,4 @@
-import Post from 'post/[id]'
+import Post from 'pages/post/[id]'
 import {RouterContext} from 'next-server/dist/lib/router-context'
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 
