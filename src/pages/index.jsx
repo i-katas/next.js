@@ -2,14 +2,31 @@ import React from 'react'
 import Link from 'next/link'
 import {links} from '@components/Header'
 import withPageLayout from '@components/withPageLayout'
+import shows from '@services/shows'
 
 const PageLayout = withPageLayout(links.home)
 
-export default () => {
-  return (
-    <PageLayout>
-      <p><Link href='/post/[id]' as='/post/Hello, Next.js'><a>Hello, Next.js!</a></Link></p>
-    </PageLayout>
-  )
+export default class extends React.Component {
+  render() {
+    let {shows = []} = this.props
+    return (
+      <PageLayout>
+        { shows.map(withShowItem) }
+      </PageLayout>
+    )
+  }
+
+  static async getInitialProps() {
+    return {shows: await shows.list()};
+  }
 }
 
+function withShowItem(show) {
+  return (
+    <div className='show' key={show.id}>
+      <Link href='/show/[id]' as={`/show/${show.id}`}>
+        <a>{show.name}</a>
+      </Link>
+    </div>
+  )
+}

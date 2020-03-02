@@ -1,14 +1,18 @@
 import Index from 'pages/index'
 import {links} from '@components/Header'
+import shows from '@services/shows'
+
+
+jest.mock('@services/shows')
 
 describe('index', () => {
-  it('render posts', () => {
-    let page = mount(<Index/>)
+  it('render shows', () => {
+    let page = mount(<Index shows={ [{id: 1, name: 'Batman'}] }/>)
 
-    let posts = page.find('p').find('Link')
-    expect(posts.prop('href')).toEqual('/post/[id]')
-    expect(posts.prop('as')).toEqual('/post/Hello, Next.js')
-    expect(posts).toIncludeText('Hello, Next.js!')
+    let shows = page.find('.show Link')
+    expect(shows.prop('href')).toEqual('/show/[id]')
+    expect(shows.prop('as')).toEqual('/show/1')
+    expect(shows).toIncludeText('Batman')
   })
 
   it('actived', () => {
@@ -16,6 +20,15 @@ describe('index', () => {
 
     expect(page.find('Header')).toExist()
     expect(page.find('Header').prop('active')).toEqual(links.home)
+  })
+
+  it('load shows', async () => {
+    let expected = []
+    shows.list.mockResolvedValue(expected)
+
+    let data = await Index.getInitialProps()
+
+    expect(data).toEqual({shows: expected})
   })
 
 })
