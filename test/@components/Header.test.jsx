@@ -1,4 +1,4 @@
-import Header, {links} from 'Header'
+import Header, {links} from '@components/Header'
 
 describe('Header', () => {
   it('active home by default', () => {
