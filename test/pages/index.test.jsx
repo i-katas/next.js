@@ -16,7 +16,7 @@ describe('index', () => {
   })
 
   it('actived', () => {
-    let page = mount(<Index/>)
+    let page = mount(<Index shows={ [{id: 1}] }/>)
 
     expect(page.find('Header')).toExist()
     expect(page.find('Header').prop('active')).toEqual(links.home)

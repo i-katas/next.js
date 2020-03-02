@@ -15,9 +15,11 @@ describe('PageLayout', () => {
     expect(() => withPageLayout('absent')).toThrow(/<PageLayout page=\{.*?}\/>, but was: "absent"/)
   })
 
-  it('reports diagnostic message if children is not provided', () => {
+  it('reports diagnostic message if not children exists', () => {
     const PageLayout = withPageLayout('home')
+
     expect(() => shallow(<PageLayout/>)).toThrow('<PageLayout/> must has at least 1 child')
+    expect(() => shallow(<PageLayout children={[]}/>)).toThrow('<PageLayout/> must has at least 1 child')
   })
 
   it('render children', () => {

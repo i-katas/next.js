@@ -6,11 +6,11 @@ const PageLayout = withPageLayout()
 
 export default class extends React.Component {
   render() {
-    let {show = {}} = this.props
+    let {show} = this.props
     return (
       <PageLayout>
-        <h1>{show.name}</h1>
-        <p dangerouslySetInnerHTML={ {__html: show.summary} }/>
+        <h1>{show?.name}</h1>
+        <p dangerouslySetInnerHTML={ {__html: show?.summary} }/>
       </PageLayout>
     )
   }

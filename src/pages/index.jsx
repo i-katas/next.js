@@ -8,10 +8,10 @@ const PageLayout = withPageLayout(links.home)
 
 export default class extends React.Component {
   render() {
-    let {shows = []} = this.props
+    let {shows} = this.props
     return (
       <PageLayout>
-        { shows.map(withShowItem) }
+        { shows?.map(withShowItem) }
       </PageLayout>
     )
   }

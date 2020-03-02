@@ -3,7 +3,8 @@ module.exports = (api) => {
   return {
     presets: ['@babel/env', '@babel/react'],
     plugins: [
-      ["@babel/plugin-transform-runtime", {"regenerator": true}]
+      ["@babel/transform-runtime", {"regenerator": true}],
+      '@babel/proposal-optional-chaining'
     ]
   }
 }
