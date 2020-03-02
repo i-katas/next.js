@@ -3,7 +3,7 @@ import Index from 'index'
 
 describe('index', () => {
   it('content', () => {
-    let page = shallow(<Index/>)
+    let page = mount(<Index/>)
 
     expect(page).toIncludeText('Hello, Next.js!')
   })
