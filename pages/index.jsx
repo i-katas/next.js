@@ -8,7 +8,7 @@ const PageLayout = withPageLayout(links.home)
 export default () => {
   return (
     <PageLayout>
-      <p><Link href={'/post?title=Hello, Next.js'}><a>Hello, Next.js!</a></Link></p>
+      <p><Link href='/post/[id]' as='/post/Hello, Next.js'><a>Hello, Next.js!</a></Link></p>
     </PageLayout>
   )
 }

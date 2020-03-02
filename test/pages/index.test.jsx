@@ -5,9 +5,10 @@ describe('index', () => {
   it('content', () => {
     let page = mount(<Index/>)
 
-    let posts = page.find('p').find('a')
+    let posts = page.find('p').find('Link')
 
-    expect(posts.props().href).toEqual(expect.stringMatching('^/post'))
+    expect(posts.prop('href')).toEqual('/post/[id]')
+    expect(posts.prop('as')).toEqual('/post/Hello, Next.js')
     expect(posts).toIncludeText('Hello, Next.js!')
   })
 

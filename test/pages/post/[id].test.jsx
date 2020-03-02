@@ -1,18 +1,18 @@
-import Post from 'post'
+import Post from 'post/[id]'
 import {RouterContext} from 'next-server/dist/lib/router-context'
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 
 describe('post', () => {
 
   beforeEach(() => {
-    useRouter.mockImplementation(()=> ({query: {title: 'Hello, Next.js'}}))
+    useRouter.mockImplementation(()=> ({query: {id: 'Hello, Next.js'}}))
   })
 
   it('render page with query string', () => {
 
     let page = shallow(<Post />)
 
-    expect(page.find('h1').length).toBe(1)
+    expect(page.find('h1')).toHaveText('Hello, Next.js')
   })
 
   it('header', () => {
