@@ -1,7 +1,11 @@
 const path = require('path')
-const shows = require('./src/@services/shows')
+
+const serverURL = process.env.serverURL || 'http://localhost:3000'
 
 module.exports = {
+  env: {
+    serverURL: serverURL
+  },
   webpack(config, options) {
     Object.assign(config.resolve.alias, {
       '@components': path.join(__dirname, 'src/@components'),
@@ -14,6 +18,9 @@ module.exports = {
     if(env.dev) {
       return 
     }
+
+    process.env.serverURL = serverURL
+    const shows = require('./src/@services/shows')
 
     let pages = {
       '/': { page: '/' },

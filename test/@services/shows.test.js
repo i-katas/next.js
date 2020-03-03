@@ -30,4 +30,13 @@ describe('shows', () => {
     expect(fetch).toHaveBeenCalledTimes(1)
     expect(fetch).toHaveBeenCalledWith(expect.stringMatching('/1.json$'))
   })
+
+  it('reports diagnostic message if missing process.env.serverURL on loading', () => {
+    jest.resetModules()
+
+    delete process.env.serverURL
+
+    expect(() => require('@services/shows')).toThrow(/Environment `serverURL` is absent/)
+  })
+
 })
