@@ -1,4 +1,5 @@
 const path = require('path')
+const shows = require('./src/@services/shows')
 
 module.exports = {
   webpack(config, options) {
@@ -8,4 +9,21 @@ module.exports = {
     });
     return config
   },
+  exportTrailingSlash: true,
+  async exportPathMap(_, env) {
+    if(env.dev) {
+      return 
+    }
+
+    let pages = {
+      '/': { page: '/' },
+      '/about': { page: '/about' }
+    }
+    return await shows.list().then(shows => 
+        shows.reduce((pages, show) => {
+          pages[`/show/${show.id}`] = {page: '/show/[id]', query: {id: show.id}}
+          return pages;
+        }, pages)
+    );
+  }
 }

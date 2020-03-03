@@ -19,12 +19,15 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "jest": "^25.1.0",
     "jest-enzyme": "^7.1.2",
-    "next-server": "^9.0.5"
+    "next-server": "^9.0.5",
+    "serve": "^11.3.0"
   },
   "scripts": {
     "test": "npx jest",
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "export": "next export",
+    "start": "next start",
+    "server": "npx serve out -p 3000"
   }
 }

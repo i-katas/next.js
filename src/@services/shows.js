@@ -1,6 +1,6 @@
-import fetch from 'isomorphic-unfetch'
+const fetch = require('isomorphic-unfetch')
 
-export default {
+module.exports = {
   list() {
     return fetch('http://localhost:3000/shows.json').then(resp => resp.json()).then(shows => shows.map(it => it.show))
   },
