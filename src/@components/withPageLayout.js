@@ -16,6 +16,11 @@ export default (page) => {
       <>
         <Header active={page}/>
         <div className='main'>{children}</div>
+        <style jsx>{`
+          .main {
+            padding: 20px;
+          }
+        `}</style>
       </>
     )
   };

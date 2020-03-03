@@ -16,6 +16,16 @@ export default function Header({active}){
     let nav = navLinks[it]
     return (
       <li key={nav.href}>
+        <style jsx>{`
+          li {
+            float: left;
+            margin: 0 20px 0 -10px;
+          }
+          a {
+            color: red;
+            text-decoration: none;
+          }
+        `}</style>
         {
           it == active ?
             <span>{nav.name}</span>
@@ -27,6 +37,24 @@ export default function Header({active}){
       </li>
     )
   })
-  return <ul>{links}</ul>
+  return (
+    <ul>
+    {links}
+    <style jsx>{`
+      ul {
+        margin: 0 -10px 0 0;
+        padding: 0 0 0 20px;
+        list-style: none;
+      }
+      ul:after {
+        content: '';
+        position: relative;
+        display: block;
+        height: 0;
+        clear: both;
+      }
+    `}</style>
+    </ul>
+  )
 }
 

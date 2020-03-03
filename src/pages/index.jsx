@@ -24,6 +24,11 @@ export default class extends React.Component {
 function withShowItem(show) {
   return (
     <div className='show' key={show.id}>
+      <style jsx>{`
+        a {
+          color: #00a;
+        }
+      `}</style>
       <Link href='/show/[id]' as={`/show/${show.id}`}>
         <a>{show.name}</a>
       </Link>
