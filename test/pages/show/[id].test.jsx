@@ -11,7 +11,7 @@ describe('show', () => {
     let page = mount(<Show show={ {id: 1, name: 'Hello, Next.js', summary: '<b>Dear, Welcome to Next.js'} }/>)
 
     expect(page.find('h1')).toHaveText('Hello, Next.js')
-    expect(page.find('p')).toHaveHTML('<p><b>Dear, Welcome to Next.js</b></p>')
+    expect(page.find('div.summary')).toHaveHTML('<div class="summary"><b>Dear, Welcome to Next.js</b></div>')
   })
 
   it('active all nav links', () => {

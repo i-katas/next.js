@@ -10,7 +10,7 @@ export default class extends React.Component {
     return (
       <PageLayout>
         <h1>{show?.name}</h1>
-        <p dangerouslySetInnerHTML={ {__html: show?.summary} }/>
+        <div className='summary' dangerouslySetInnerHTML={ {__html: show?.summary} }/>
       </PageLayout>
     )
   }
